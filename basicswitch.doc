@@ -1,0 +1,33 @@
+Basic Switch Configuration
+
+•	Console into the switch and enable privileged EXEC mode. 
+o	Switch>enable
+o	Switch#
+•	Assign a device name to the switch. 
+o	Switch# config t
+o	Switch (config)# hostname “Name of Switch”
+o	“Name of Switch”(config)# exit
+•	Disable DNS lookup. 
+o	Switch(config)# no dns lookup
+•	Assign class as the privileged EXEC encrypted password. 
+o	Switch(config)#enable password class
+o	Switch(config)#exit
+•	Assign cisco as the console password and enable login.
+o	Switch(config)# line console 0
+o	Switch(config-line)# password cisco
+o	Switch(config-line)# login
+o	Switch(config-line)#exit
+o	Switch(config)#exit
+•	Assign cisco as the VTY password and enable login. 
+o	Switch(config)# Line vty 0 4  or 0 15
+o	Switch(config-line)# Password cisco
+•	Configure an encrypted password to secure access to privileged mode
+o	Switch(config)#enable secret class
+o	Switch(config)#exit
+•	Encrypt the plaintext passwords. 
+o	Switch(config)#service password-encryption
+o	Switch(config)#exit
+•	Create a banner that warns anyone accessing the device that unauthorized access is prohibited. 
+o	Switch(config)#banner modt “Unauthorized Access is Prohibited”
+•	Copy the running configuration to the startup configuration. 	
+o	Switch# copy run start
